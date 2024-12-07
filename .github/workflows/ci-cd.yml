@@ -24,11 +24,11 @@ jobs:
 
       - name: Build the Docker image
         run: |
-          docker build -t anchalshivank99/mt-auth-service:latest .
+          docker build -t anchalshivank99/mt-notify-service:latest .
 
       - name: Push the Docker image
         run: |
-          docker push anchalshivank99/mt-auth-service:latest
+          docker push anchalshivank99/mt-notify-service:latest
 
 #  deploy:
 #    runs-on: ubuntu-latest
