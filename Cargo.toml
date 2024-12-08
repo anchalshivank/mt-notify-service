@@ -4,3 +4,10 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+ntex = {version = "2.10.0", features = ["tokio"]}
+env_logger = "0.11.5"
+serde = "1.0.215"
+uuid = { version = "1.11.0", features = ["v4"] }
+futures = "0.3.31"
+rand = "0.9.0-beta.1"
+log = "0.4.22"
