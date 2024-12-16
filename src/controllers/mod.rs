@@ -19,7 +19,7 @@ pub type ClientMap = Arc<Mutex<HashMap<String, mpsc::UnboundedSender<ws::Message
 
 #[web::get("/health")]
 pub async fn health() -> impl Responder {
-    HttpResponse::Ok().json(&ApiResponse::<(), ()>::success("Service is running", Option::from(())))
+    HttpResponse::Ok().json(&ApiResponse::<(), ()>::success("Service is running", None))
 }
 #[web::post("/notify-machine")]
 pub async fn notify_machine(
