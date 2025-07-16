@@ -31,6 +31,8 @@ pub async fn notify_machine(
         req.machine_id, req.user_id, req.message
     );
 
+    info!("{}", message);
+
     let clients_map = match state.lock() {
         Ok(map) => map,
         Err(_) => {

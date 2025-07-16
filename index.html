@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Test</title>
+</head>
+<body>
+    <div id="messages"></div>
+    <script>
+        const ws = new WebSocket('ws://localhost:8081/ws/2');
+        const messages = document.getElementById('messages');
+        
+        ws.onopen = () => {
+            messages.innerHTML += '<p>Connected!</p>';
+        };
+        
+        ws.onmessage = (event) => {
+            messages.innerHTML += `<p>Received: ${event.data}</p>`;
+        };
+        
+        ws.onerror = (error) => {
+            messages.innerHTML += `<p>Error: ${error}</p>`;
+        };
+        
+        ws.onclose = () => {
+            messages.innerHTML += '<p>Disconnected</p>';
+        };
+    </script>
+</body>
+</html>
