@@ -164,6 +164,15 @@ pub async fn ws_index(
     path: web::types::Path<String>,
 ) -> Result<web::HttpResponse, web::Error> {
     let machine_id = path.clone();
+      if let Some(upgrade) = req.headers().get("upgrade") {
+        log::info!("Upgrade header: {:?}", upgrade);
+    }
+    if let Some(connection) = req.headers().get("connection") {
+        log::info!("Connection header: {:?}", connection);
+    }
+    if let Some(ws_key) = req.headers().get("sec-websocket-key") {
+        log::info!("WebSocket key: {:?}", ws_key);
+    }
     let config = map_config(fn_factory_with_config(ws_service), move |cfg| {
         (cfg, state.clone(), machine_id.clone())
     });
